@@ -1,0 +1,1 @@
+INSERT INTO PROFESSOR (nome,email,cargo,salario,setor) VALUES ('p1','a@b.com','gerente',1,'TECNOLOGIA');

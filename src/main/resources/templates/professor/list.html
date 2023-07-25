@@ -1,0 +1,48 @@
+<head th:replace="~{layoutBase :: head}">
+</head>
+<body>
+	<div th:replace="~{layoutBase :: navbar}"></div>
+		
+	<div class="container mb-2">
+		<h1>Professor</h1>
+		
+			<a href="/professor/formAdd">
+				<button class="btn btn-dark">Adicionar</button>
+			</a>
+			
+			<table class="table table-light">
+				<tr class="table-dark">
+					<th></th>
+					<th scope="col">Nome</th>
+					<th scope="col">Cargo</th>
+					<th scope="col">Email</th>
+					<th scope="col">Salario</th>
+					<th scope="col">Setor</th>
+					<th scope="col"></th>
+				</tr>
+				
+				<tr th:each="professor : ${professores}">
+					<th scope="row"></th>
+					<td><span th:text="${professor.nome}"></span></td>
+					<td><span th:text="${professor.cargo}"></span></td>
+					<td><span th:text="${professor.email}"></td>
+					<td>R$<span th:text="${professor.salario}"></span></td>
+					<td><span th:text="${professor.setor}"></span></td>
+					<td class="buttons ">
+						<a th:href="@{/professor/formEdit/{id}(id=${professor.id})}"
+						   th:method="get" 
+						   class="btn btn-warning">
+						   <i class="fa fa-pencil"></i>
+						</a>
+						<a th:href="@{/professor/delete/{id}(id=${professor.id})}" 
+						   th:method="delete"
+						   class="btn btn-danger">
+						   <i class="fa fa-trash"></i>
+						</a>
+					</td>
+
+				</tr>
+		</table>	
+					
+	</div>	
+</body>
